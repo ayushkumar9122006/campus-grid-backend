@@ -1,0 +1,49 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: campusgrid_api
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=dev
+      - PROJECT_NAME=CampusGrid
+      - SECRET_KEY=campusgrid-super-secret-key-production-ready-32chars
+      - DB=postgresql
+      - DB_USER=campusgrid
+      - DB_PASSWORD=campusgrid_secret
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=campusgrid_db
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  db:
+    image: postgres:16-alpine
+    container_name: campusgrid_postgres
+    environment:
+      - POSTGRES_USER=campusgrid
+      - POSTGRES_PASSWORD=campusgrid_secret
+      - POSTGRES_DB=campusgrid_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U campusgrid -d campusgrid_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

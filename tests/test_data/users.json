@@ -1,0 +1,26 @@
+[
+  {
+    "email": "student1@campus.edu",
+    "password": "Password123!",
+    "role": "student",
+    "is_active": true
+  },
+  {
+    "email": "student2@campus.edu",
+    "password": "Password123!",
+    "role": "student",
+    "is_active": true
+  },
+  {
+    "email": "faculty@campus.edu",
+    "password": "Password123!",
+    "role": "faculty",
+    "is_active": true
+  },
+  {
+    "email": "admin@campus.edu",
+    "password": "Password123!",
+    "role": "admin",
+    "is_active": true
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Sony FX3 Cinema Camera Kit",
+    "category": "media_gear",
+    "total_quantity": 2,
+    "available_quantity": 2,
+    "status": "available"
+  },
+  {
+    "name": "Oscilloscope Rig B2",
+    "category": "lab_equipment",
+    "total_quantity": 1,
+    "available_quantity": 1,
+    "status": "available"
+  },
+  {
+    "name": "Robotics Arena Pitch A",
+    "category": "facility",
+    "total_quantity": 1,
+    "available_quantity": 1,
+    "status": "available"
+  },
+  {
+    "name": "Electron Microscope Beta",
+    "category": "lab_equipment",
+    "total_quantity": 1,
+    "available_quantity": 0,
+    "status": "maintenance"
+  }
+]
